@@ -30,19 +30,7 @@ h3{
     text-align:left;
     margin-bottom: 20px;
 }
-h4{
-    font-size: 24px;
-    color: #444;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-h5{
-    font-size:15px;
-    color:#444;
-    font-weight:bold;
-    text-transform: uppercase;
-}
+
 a{
     text-decoration: none;
     color: #444;
@@ -103,40 +91,7 @@ header nav ul li a{
 .contact-title{
     margin-top:100px;
 }
-.submit{
-    display:inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0px;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857;
-    text-align: center;
-    color:#777;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor:pointer;
-    border: 1px solid transparent;
-    border-radius:4px;
-}
-#features ul{
-    margin:80px 0;
-}
-#features ul li{
-    width:275px;
-    padding-top:140px;
-    float:left;
-    margin-right:10px;
-    text-align:center;
-}
-#features ul li.feature-1{
-    background:no-repeat top center;
-}
-#features ul li.feature-2{
-    background: no-repeat top center;
-}
-#features ul li.feature-3{
-    background:no-repeat top center;
-}
+
 .fancy-header{
     background: none repeat scroll 0% 0% #999;
     color:#FFF;
