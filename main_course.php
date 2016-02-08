@@ -1,12 +1,4 @@
- <? php
-session_start();
-
-if(isset($_SESSION['submitted'])){
-	header("Location: ./appetizers_results.php");
-	}
-?>
-	
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html>
     <head>
@@ -57,16 +49,34 @@ if(isset($_SESSION['submitted'])){
             </span>
     
     </h3>
-      
-      <p><h4>  </h4></p><br><br>
-      
-    
-      </form>  
+    <?php
+    try
+    {
+	  
+	$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
+	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
+	$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+	$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+	$dbName = "recipe_box";
+	$db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);  //create a secure database variable
+	  echo '<p>';
+	  
+	  foreach ($db->query('SELECT * FROM mainCourse')as $row) {
+        echo '<b>'.$row['recipe_category'].' '.$row['recipe_name'].':'.$row['recipe_content'].'<br />';
+      }
+	
+	echo '<p>';
+}
 
-<? php
-$_SESSION['submitted'] = true;
-?>
-        
+     catch (PDOException $ex)
+     {
+     echo 'Error!:' . $ex->getMessage();
+     die();
+     }
+     ?> 
+      <p><h4> </h4></p><br><br>
+      
+  
     </div>
     </div>
         
