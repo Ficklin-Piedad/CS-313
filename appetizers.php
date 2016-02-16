@@ -50,24 +50,25 @@
             </span>
     
     </h3>
+    
     <?php
-    try
-    {
-	  
-	$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST');
-	$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
-	$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
-	$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	$dbName = "recipe_box";
-	$db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);  //create a secure database variable
-	  echo '<p>';
-	  
-	  foreach ($db->query('SELECT * FROM appetizers')as $row) {
-        echo '<b>'.$row['recipe_category'].' '.$row['recipe_name'].':'.$row['recipe_content'].'<br />';
+    
+    echo 'Helloooo!!!';
+    
+   
+	require 'recipebox_db.php';
+	$db = dbConnect();
+	echo 'Work please';
+	
+	  try
+	  {
+	  foreach ($db->query('SELECT * FROM recipes')as $row) {
+        echo '<b>'.$row['recipe_category'].' '.$row['recipe_name'].':'.$row['ingredients'].' '.['content'].'<br />';
       }
 	
 	echo '<p>';
 }
+
 
      catch (PDOException $ex)
      {
@@ -75,6 +76,7 @@
      die();
      }
      ?> 
+     
       <p><h4> </h4></p><br><br>
       
   

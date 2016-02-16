@@ -62,7 +62,7 @@
 	  echo '<p>';
 	  
 	  foreach ($db->query('SELECT * FROM mainCourse')as $row) {
-        echo '<b>'.$row['recipe_category'].' '.$row['recipe_name'].':'.$row['recipe_content'].'<br />';
+        echo '<b>'.$row['recipe_category'].' '.$row['recipe_name'].':'.$row['ingredients'].' '.['content'].'<br />';
       }
 	
 	echo '<p>';
